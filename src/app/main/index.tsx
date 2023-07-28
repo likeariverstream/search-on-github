@@ -79,35 +79,39 @@ export const Main = memo(() => {
   }
 
   return (
-    <PageLayout>
-      <Input
-        type='text'
-        placeholder='Поиск по логину...'
-        inputValue={search}
-        onChange={callbacks.onSearch} />
-      <Select
-        options={options.sort}
-        value={order}
-        onChange={callbacks.onChange}
-        description='Сортировать по количеству репозиториев:' />
-      <Spinner active={waiting}>
+    <>
+      <PageLayout>
         <ListLayout>
-          {data?.items && data?.items.map((item) => {
-            return <UserCard key={item.id} callback={callbacks.openModal} item={item} />
-          })
-          }
-          {data?.items && <Pagination
-            count={data.total_count < resultsLimit ? data.total_count : resultsLimit}
-            page={page}
-            onChange={callbacks.onPaginate}
-            makeLink={callbacks.makePaginatorLink} />}
+          <Input
+            type='text'
+            placeholder='Поиск по логину...'
+            inputValue={search}
+            onChange={callbacks.onSearch} />
+          <Select
+            options={options.sort}
+            value={order}
+            onChange={callbacks.onChange}
+            description='Сортировать по количеству репозиториев:' />
         </ListLayout>
-      </Spinner>
-      {isOpenModal && <Modal callback={callbacks.closeModal}>
-        < UserInfo
-          item={currentUserItem}
-          callback={callbacks.closeModal} />
-      </Modal>}
-    </PageLayout>
+        <Spinner active={waiting}>
+          <ListLayout>
+            {data?.items && data?.items.map((item) => {
+              return <UserCard key={item.id} callback={callbacks.openModal} item={item} />
+            })
+            }
+            {data?.items && <Pagination
+              count={data.total_count < resultsLimit ? data.total_count : resultsLimit}
+              page={page}
+              onChange={callbacks.onPaginate}
+              makeLink={callbacks.makePaginatorLink} />}
+          </ListLayout>
+        </Spinner>
+        {isOpenModal && <Modal callback={callbacks.closeModal}>
+          < UserInfo
+            item={currentUserItem}
+            callback={callbacks.closeModal} />
+        </Modal>}
+      </PageLayout>
+    </>
   )
 })

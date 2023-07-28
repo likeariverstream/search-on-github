@@ -13,3 +13,5 @@
 
 ## Сборка
 ### yarn build
+
+### [Страница приложения](https://search-on-github.onrender.com/)
