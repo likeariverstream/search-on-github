@@ -1,15 +1,15 @@
 # React + TypeScript + Vite + Vitest
 
-Приложение для поиска пользователей по логину с помощью Github API
+### Приложение для поиска пользователей по логину с помощью Github API
 
 ## Для разработки
-yarn dev
+### yarn dev
 
 ## Tecты
-yarn test
+### yarn test
 
 ## Линтер
-yarn lint
+### yarn lint
 
 ## Сборка
-yarn build
+### yarn build
