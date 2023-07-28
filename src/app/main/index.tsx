@@ -12,6 +12,7 @@ import { searchUrl } from '../../api/urls'
 import { Modal } from '../../components/modal'
 import { resultsLimit, selectOptions } from '../../utils/constants'
 import { UserInfo } from '../../components/user-info'
+import { Spinner } from '../../components/spinner'
 
 export const Main = memo(() => {
   const [search, setSearch] = useState(initParams().q)
@@ -21,7 +22,8 @@ export const Main = memo(() => {
   const [data, setData] = useState<UserResponseData>()
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [currentUserItem, setCurrentUserItem] = useState<UserItem | null>(null)
-  0
+  const [waiting, setWaiting] = useState(false)
+
   const options = {
     sort: useMemo(() => (selectOptions), [])
   }
@@ -35,9 +37,11 @@ export const Main = memo(() => {
         }
       }
       try {
+        setWaiting(true)
         const response = await fetch(`${searchUrl}/users?q=${q}&sort=${sort}&order=${order}&page=${page}`, options)
         const data = await response.json()
         setData(data)
+        setWaiting(false)
         return data
       } catch (e: unknown) {
         console.warn(e)
@@ -86,17 +90,19 @@ export const Main = memo(() => {
         value={order}
         onChange={callbacks.onChange}
         description='Сортировать по количеству репозиториев:' />
-      <ListLayout>
-        {data?.items && data?.items.map((item) => {
-          return <UserCard key={item.id} callback={callbacks.openModal} item={item} />
-        })
-        }
-        {data?.items && <Pagination
-          count={data.total_count < resultsLimit ? data.total_count : resultsLimit}
-          page={page}
-          onChange={callbacks.onPaginate}
-          makeLink={callbacks.makePaginatorLink} />}
-      </ListLayout>
+      <Spinner active={waiting}>
+        <ListLayout>
+          {data?.items && data?.items.map((item) => {
+            return <UserCard key={item.id} callback={callbacks.openModal} item={item} />
+          })
+          }
+          {data?.items && <Pagination
+            count={data.total_count < resultsLimit ? data.total_count : resultsLimit}
+            page={page}
+            onChange={callbacks.onPaginate}
+            makeLink={callbacks.makePaginatorLink} />}
+        </ListLayout>
+      </Spinner>
       {isOpenModal && <Modal callback={callbacks.closeModal}>
         < UserInfo
           item={currentUserItem}
