@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { Select } from '../../components/select'
 import { Input } from '../../components/input'
 import { UserItem, UserResponseData } from '../../interfaces/interfaces'
@@ -13,7 +13,7 @@ import { Modal } from '../../components/modal'
 import { resultsLimit, selectOptions } from '../../utils/constants'
 import { UserInfo } from '../../components/user-info'
 
-export const Main = () => {
+export const Main = memo(() => {
   const [search, setSearch] = useState(initParams().q)
   const [order, setOrder] = useState(initParams().order)
   const [sort,] = useState(initParams().sort)
@@ -104,4 +104,4 @@ export const Main = () => {
       </Modal>}
     </PageLayout>
   )
-}
+})

@@ -1,4 +1,4 @@
-import React, { memo, FC } from 'react'
+import { memo, FC } from 'react'
 import styles from './styles.module.css'
 import { UserCardProps } from './interface'
 
