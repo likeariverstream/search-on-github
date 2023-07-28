@@ -1,0 +1,54 @@
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 24px 20px;
+    gap: 2px;
+    margin: 0;
+}
+
+.item {
+    display: block;
+    padding: 2px 4px 2px 2px;
+    margin: 0;
+    cursor: pointer;
+    height: 20px;
+    min-width: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 18px;
+    transition: 0.45s ease-out;
+}
+
+.item a,
+.item a:hover,
+.item a:active {
+    text-decoration: none;
+    color: #666666;
+}
+
+.item:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: 0.25s ease-in;
+}
+
+.item_active,
+.item_active:hover,
+.item_active a,
+.item_active a:hover {
+    background: #666666;
+    border-radius: 4px;
+    transition: 0.25s ease-in;
+    color: #FFFFFF;
+}
+
+.item_split,
+.item_split:hover {
+  background: transparent;
+  border-radius: 4px;
+  cursor: default;
+  transition: 0.25s ease-in;
+  color: #CCCCCC;
+}

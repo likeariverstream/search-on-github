@@ -1,0 +1,27 @@
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    opacity: .6;
+}
+.modal {
+    position: fixed;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    min-width: 300px;
+    max-width: 90vw;
+    min-height: max-content;
+    transform: translate(-50%, -50%);
+    background-color: #242424;
+    border: 0.5px solid #666666;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}

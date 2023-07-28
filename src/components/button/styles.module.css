@@ -1,0 +1,21 @@
+.button {
+    padding: 4px;
+    width: max-content;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: ;
+    transition: 0.45s ease-out;
+    background: #282727;
+    color: #FFFFFF;
+    border: 0.5px solid #666666;
+    border-radius: 4px;
+}
+
+.button:hover {
+    transition: 0.25s ease-in;
+    cursor: pointer;
+    color: #666666;
+}

@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    min-width: 300px;
+    align-items: center;
+    padding: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 0.5px solid #666666;
+    transition: 0.45s ease-out;
+}
+
+.card:hover {
+    transition: 0.25s ease-in;
+    opacity: .7;
+    cursor: pointer;
+    border-bottom: 0.5px solid #FFFFFF;
+}
+
+.login {
+    width: 100%;
+    display: block;
+    margin: 0;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}

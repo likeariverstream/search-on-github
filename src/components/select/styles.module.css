@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  align-items: center;
+}
+
+.select {
+    outline: none;
+    box-sizing: border-box;
+    padding: 4px 8px 4px 8px;
+    min-width: 300px;
+    min-height: 24px;
+    background: #282727;
+    color: #FFFFFF;
+    border: 0.5px solid #666666;
+    border-radius: 4px;
+}
+
+.select option {
+   background-color: #282727;
+   color: #FFFFFF;
+}
+
+.select::-ms-expand {
+   display: none;
+}
+
+.description {
+  margin: 0;
+  display: block;
+}

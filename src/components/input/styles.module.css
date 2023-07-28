@@ -1,0 +1,15 @@
+.input {
+    outline: none;
+    box-sizing: border-box;
+    padding: 4px 8px 4px 8px;
+    min-width: 300px;
+    min-height: 24px;
+    background: #282727;
+    color: #FFFFFF;
+    border: 0.5px solid #666666;
+    border-radius: 4px;
+}
+
+.input::placeholder {
+    color: #666666;
+}
