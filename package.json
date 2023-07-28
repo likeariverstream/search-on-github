@@ -2,6 +2,9 @@
   "name": "search-on-github",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "v16.20.1"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
